@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>New post</h2>
+    <form method="POST" class="post-form" enctype="multipart/form-data" >{% csrf_token %}
+        <div>
+            <label for="id_title">Title:</label>
+            {{form.title}}
+        </div>    
+        <div>
+            <label for="id_text">Text:</label>
+            {{form.text}}
+        </div>
+        <div>
+            {{form.blog_img.value}}
+            <label for="id_blog_img">Image:</label>
+            <input type="file" name="image" id="id_blog_img">
+        </div>
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
